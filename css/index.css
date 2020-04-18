@@ -13,7 +13,8 @@ body {
 
 .main-nav,
 .main-header,
-.main-header > div {
+.main-header > div,
+.main-section {
   display: flex;
 }
 
@@ -23,8 +24,7 @@ body {
 }
 
 .main-header {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 0.5em 5em;
 }
 
 ul > :first-child {
@@ -48,13 +48,75 @@ a {
   color: #000;
 }
 
-.signUp-btn {
+.btn {
   background-color: hsl(180, 66%, 49%);
-  border-radius: 15px;
+  border-color: transparent;
   color: #fff;
+}
+
+.btn--signup {
+  border-radius: 15px;
   padding: 7px 15px;
 }
 
+.btn--get-started {
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
 .decrease {
-  font-size: 10px;
+  font-size: 13px;
+}
+
+.main-section {
+  padding-left: 5em;
+}
+
+.main-section * h2 {
+  font-size: 55px;
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
+.main-section * p {
+  margin-top: -5px;
+  font-size: 17px;
+}
+
+.main-section > div {
+  margin-top: 1px;
+}
+
+/* .start__btn {
+  
+  padding: 13px 23px;
+} */
+
+.first-img {
+  margin-left: 16px;
+}
+
+@media (max-width: 769px) {
+  .main-section {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    padding: 1.5em;
+  }
+
+  .main-section > div {
+    text-align: center;
+  }
+  .main-section > div,
+  .main-section > .first-img {
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  .main-section * h2 {
+    font-size: 40px;
+    margin-bottom: 0.5em;
+  }
 }
