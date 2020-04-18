@@ -1,0 +1,60 @@
+/* Main Element style */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.main-header {
+  justify-content: space-between;
+}
+
+.main-nav,
+.main-header,
+.main-header > div {
+  display: flex;
+}
+
+.main-nav {
+  list-style-type: none;
+  padding: 12px;
+}
+
+.main-header {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+ul > :first-child {
+  padding-left: 10px;
+  padding-right: 18px;
+}
+
+ul > :nth-child(2) {
+  padding-right: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.change {
+  color: hsl(0, 0%, 75%);
+}
+
+.name a {
+  color: #000;
+}
+
+.signUp-btn {
+  background-color: hsl(180, 66%, 49%);
+  border-radius: 15px;
+  color: #fff;
+  padding: 7px 15px;
+}
+
+.decrease {
+  font-size: 10px;
+}
