@@ -27,12 +27,12 @@ body {
   padding: 0.5em 5em;
 }
 
-ul > :first-child {
+.main-nav > :first-child {
   padding-left: 10px;
   padding-right: 18px;
 }
 
-ul > :nth-child(2) {
+.main-nav > :nth-child(2) {
   padding-right: 25px;
 }
 
@@ -40,7 +40,7 @@ a {
   text-decoration: none;
 }
 
-.change {
+.grey-text-color {
   color: hsl(0, 0%, 75%);
 }
 
@@ -180,6 +180,49 @@ a {
   padding: 13px 33px;
 }
 
+/* footer layout */
+
+footer {
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  padding-top: 40px;
+}
+
+footer ul {
+  padding-left: 0px;
+}
+
+.footer-nav-list {
+  font-size: 10px;
+  line-height: 2;
+  list-style-type: none;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+
+  width: 30%;
+}
+
+.features,
+.resources,
+.company-details,
+.footer-icons {
+  text-align: center;
+  width: 15%;
+}
+
+h5 {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.icons {
+  padding-right: 10px;
+}
 /* media Query Layout */
 
 @media (max-width: 769px) {
@@ -233,5 +276,34 @@ a {
 
   .info-statistics {
     width: 100%;
+  }
+
+  footer {
+    flex-wrap: wrap;
+  }
+
+  .brand-name,
+  .features,
+  .resources,
+  .company-details,
+  .footer-icons {
+    margin: auto;
+    width: 100%;
+  }
+
+  .brand-name {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+
+  .features,
+  .resources,
+  .company-details,
+  .footer-icons {
+    margin-bottom: 30px;
+  }
+
+  footer * h5 {
+    font-size: 20px;
   }
 }
