@@ -211,7 +211,6 @@ footer ul {
 .resources,
 .company-details,
 .footer-icons {
-  text-align: center;
   width: 15%;
 }
 
@@ -280,6 +279,7 @@ h5 {
 
   footer {
     flex-wrap: wrap;
+    text-align: center;
   }
 
   .brand-name,
