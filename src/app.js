@@ -3,7 +3,14 @@ http = new Http();
 function handleSubmit() {
   event.preventDefault();
 
-  const url = document.getElementById("url").value;
+  const urlInputField = document.getElementById("url");
+  const url = urlInputField.value;
+  removeError(urlInputField);
+
+  if (!isUrlValid(url) || isEmpty(url)) {
+    displayError(urlInputField);
+    return;
+  }
 
   const endpoint = "https://rel.ink/api/links/";
   const body = {
@@ -15,6 +22,32 @@ function handleSubmit() {
     saveLink(data);
     removeUrl();
   });
+}
+
+function isEmpty(url) {
+  return url === "";
+}
+
+function displayError(urlInputField) {
+  urlInputField.classList.add("error");
+  const messageSpan = document.querySelector(".errorMessage");
+  messageSpan.textContent = "Please add a valid link!";
+}
+
+function removeError(urlInputField) {
+  urlInputField.classList.remove("error");
+  const messageSpan = document.querySelector(".errorMessage");
+  messageSpan.textContent = "";
+}
+
+function isUrlValid(url) {
+  var pattern = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+
+  if (pattern.test(url)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function displayLink(data) {

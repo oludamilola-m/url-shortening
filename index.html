@@ -46,13 +46,20 @@
 
       <section class="detail-section">
         <div class="shorten-container">
-          <form class="shorten-container__form" onsubmit="handleSubmit()">
-            <input
-              type="text"
-              id="url"
-              placeholder="Shorten a link here ...."
-            />
-            <input type="submit" value="Shorten It!" class="btn btn--shorten" />
+          <form onsubmit="handleSubmit()">
+            <div class="shorten-container__form">
+              <input
+                type="text"
+                id="url"
+                placeholder="Shorten a link here ...."
+              />
+              <input
+                type="submit"
+                value="Shorten It!"
+                class="btn btn--shorten"
+              />
+            </div>
+            <span class="errorMessage"></span>
           </form>
 
           <div id="shortened-links"></div>
