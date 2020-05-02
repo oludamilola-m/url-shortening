@@ -44,12 +44,20 @@
         <img class="first-img" src="images/illustration-working.svg" />
       </section>
 
-      <div class="shorten-container">
-        <input type="text" placeholder="Shorten a link here ...." />
-        <button class="btn btn--shorten">Shorten It!</button>
-      </div>
-
       <section class="detail-section">
+        <div class="shorten-container">
+          <form class="shorten-container__form" onsubmit="handleSubmit()">
+            <input
+              type="text"
+              id="url"
+              placeholder="Shorten a link here ...."
+            />
+            <input type="submit" value="Shorten It!" class="btn btn--shorten" />
+          </form>
+
+          <div id="shortened-links"></div>
+        </div>
+        <button id="remove-links" onclick="removeLinks()">Clear Links</button>
         <div class="info-statistics">
           <h2>Advanced Statistics</h2>
           <p class="grey-text-color">
@@ -134,5 +142,7 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </div>
     </main>
+    <script src="src/http.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>

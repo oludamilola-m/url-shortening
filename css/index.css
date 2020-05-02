@@ -101,21 +101,39 @@ a {
 }
 
 .shorten-container {
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
   left: 0;
   right: 0;
   margin: auto;
-  padding: 1.5em;
-  margin-top: -3em;
-  position: absolute;
+  top: 9em;
   width: 88%;
+}
+
+.shortened-link {
+  background-color: #fff;
+  border-radius: 0.4em;
+  display: flex;
+  margin-top: 1em;
+  padding: 0.8em;
+}
+
+.shortened-link > .shortened-link__item {
+  width: 49%;
+}
+
+.shortened-link__copy {
+  text-align: right;
+}
+
+.shorten-container__form {
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em;
   background-color: #393053;
   background-image: url("../images/bg-shorten-desktop.svg");
 }
 
-.shorten-container > input {
+.shorten-container__form > #url {
   border-color: transparent;
   border-radius: 5px;
   font-size: 13px;
@@ -128,6 +146,14 @@ a {
   border-radius: 5px;
   font-weight: bold;
   padding: 14px 22px 12px 17px;
+}
+
+.btn--copy {
+  padding: 7px 23px;
+}
+
+.shortened-link__text {
+  color: cyan;
 }
 
 .info-statistics {
@@ -144,7 +170,8 @@ a {
 
 .detail-section {
   background-color: #f0f1f6;
-  padding: 4em 5em;
+  padding: 0em 5em;
+  padding-bottom: 5em;
 }
 
 .card-container {
@@ -164,7 +191,6 @@ a {
 .boost-link {
   background-color: #393053;
   background-image: url("../images/bg-shorten-desktop.svg");
-  margin-top: -22px;
   text-align: center;
   padding-top: 1.5em;
   padding-bottom: 2em;
@@ -180,7 +206,7 @@ a {
   padding: 13px 33px;
 }
 
-/* footer layout */
+/* .....footer layout..... */
 
 footer {
   color: #fff;
@@ -222,7 +248,7 @@ h5 {
 .icons {
   padding-right: 10px;
 }
-/* media Query Layout */
+/* .....Media Query Layout...... */
 
 @media (max-width: 769px) {
   .main-section {
@@ -247,16 +273,19 @@ h5 {
   }
 
   .shorten-container {
-    flex-wrap: wrap;
     margin-top: -4.5em;
   }
 
-  .shorten-container > input,
-  .shorten-container > button {
+  .shorten-container__form {
+    flex-wrap: wrap;
+  }
+
+  .shorten-container__form > input,
+  .shorten-container__form > button {
     width: 100%;
   }
 
-  .shorten-container > input {
+  .shorten-container__form > input {
     margin-bottom: 1em;
   }
 
