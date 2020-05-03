@@ -63,7 +63,7 @@ function shortenedLinkDiv(linkObject) {
       <div class="shortened-link__item shortened-link__original">${linkObject.url}</div>
       <div class="shortened-link__item shortened-link__copy">
         <span class="shortened-link__text">https://rel.ink/${linkObject.hashid}</span>
-        <button class="btn btn--copy">Copy</button>
+        <button class="btn btn--copy" onclick="handleCopyClick()">Copy</button>
       </div>
     </div>
     `;
@@ -95,6 +95,19 @@ function removeLinks() {
   const container = document.querySelector("#shortened-links");
   container.innerHTML = "";
   localStorage.removeItem("links");
+}
+
+function handleCopyClick() {
+  const body = document.querySelector("body");
+  const copyText = event.target.previousElementSibling.innerHTML;
+  const tempInput = document.createElement("INPUT");
+  body.appendChild(tempInput);
+  tempInput.setAttribute("value", copyText);
+  tempInput.select();
+  tempInput.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Copied!");
+  body.removeChild(tempInput);
 }
 
 function removeUrl() {
