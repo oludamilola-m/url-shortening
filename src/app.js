@@ -1,4 +1,5 @@
 http = new Http();
+loadLinks();
 
 function handleSubmit() {
   event.preventDefault();
@@ -64,6 +65,7 @@ function shortenedLinkDiv(linkObject) {
       <div class="shortened-link__item shortened-link__copy">
         <span class="shortened-link__text">https://rel.ink/${linkObject.hashid}</span>
         <button class="btn btn--copy" onclick="handleCopyClick()">Copy</button>
+        <button class="btn btn--remove" onclick="handleRemoveClick()">remove</button>
       </div>
     </div>
     `;
@@ -77,6 +79,14 @@ function loadLinks() {
     links = JSON.parse(links);
   }
 
+  const clearLinkButton = document.querySelector("#remove-links");
+
+  if (links.length === 0) {
+    clearLinkButton.style.display = "none";
+  } else {
+    clearLinkButton.style.display = "block";
+  }
+
   links.forEach((link) => {
     displayLink(link);
   });
@@ -88,8 +98,6 @@ function saveLink(link) {
 
   localStorage.setItem("links", JSON.stringify(links));
 }
-
-loadLinks();
 
 function removeLinks() {
   const container = document.querySelector("#shortened-links");
@@ -108,6 +116,18 @@ function handleCopyClick() {
   document.execCommand("copy");
   alert("Copied!");
   body.removeChild(tempInput);
+}
+
+function handleRemoveClick() {
+  let links = localStorage.getItem("links");
+  links = JSON.parse(links);
+  const originalLinkField = event.target.parentElement.previousElementSibling;
+  const urlToRemove = originalLinkField.textContent;
+  const newLinks = links.filter((link) => link.url !== urlToRemove);
+
+  localStorage.setItem("links", JSON.stringify(newLinks));
+  const shortenedDiv = event.target.parentElement.parentElement;
+  shortenedDiv.remove();
 }
 
 function removeUrl() {
